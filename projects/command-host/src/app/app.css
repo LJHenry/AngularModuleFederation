@@ -10,6 +10,18 @@
       --gray-700: oklch(36.98% 0.014 302.71);
       --gray-400: oklch(70.9% 0.015 304.04);
 
+      --red-to-pink-to-purple-vertical-gradient: linear-gradient(180deg,
+              var(--orange-red) 0%,
+              var(--vivid-pink) 50%,
+              var(--electric-violet) 100%);
+
+      --red-to-pink-to-purple-horizontal-gradient: linear-gradient(90deg,
+              var(--orange-red) 0%,
+              var(--vivid-pink) 50%,
+              var(--electric-violet) 100%);
+
+      --pill-accent: var(--bright-blue);
+
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
           "Segoe UI Symbol";
@@ -30,6 +42,18 @@
           "Segoe UI Symbol";
   }
 
+  h2 {
+      font-size: 2.125rem;
+      color: var(--gray-900);
+      font-weight: 300;
+      line-height: 100%;
+      letter-spacing: -0.125rem;
+      margin: 0;
+      font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+          "Segoe UI Symbol";
+  }
+
   p {
       margin: 0;
       color: var(--gray-700);
@@ -39,16 +63,31 @@
       width: 100%;
       min-height: 100%;
       display: flex;
-      justify-content: left;
+      justify-content: center;
       align-items: center;
       padding: 1rem;
       box-sizing: inherit;
       position: relative;
   }
 
+  .title
+  {
+    display: inline;
+  }
+
+  .subtitle
+  {
+    display: inline;
+    margin-left: 1.75rem;
+  }
+
+  .toolbar {
+      flex: 1 1 auto;
+  }
+
   .content {
       display: flex;
-      justify-content: left;
+      justify-content: space-around;
       width: 100%;
       max-width: 700px;
       margin-bottom: 3rem;
@@ -67,17 +106,11 @@
           flex-direction: column;
           width: max-content;
       }
-  }
 
-  mat-button-toggle-group {
-      margin-left: 12px;
-  }
-
-  .mat-button-toggle-checked {
-      background-color: #1976d2 !important;
-      color: white !important;
-  }
-
-    .mat-button-toggle-disabled {
-      background-color:  oklch(70.9% 0.015 304.04) !important;
+      .divider {
+          height: 1px;
+          width: 100%;
+          background: var(--red-to-pink-to-purple-horizontal-gradient);
+          margin-block: 1.5rem;
+      }
   }

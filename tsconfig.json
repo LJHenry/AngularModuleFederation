@@ -1,5 +1,3 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -30,10 +28,10 @@
       "path": "./projects/typhoon-mfe/tsconfig.spec.json"
     },
     {
-      "path": "./projects/host/tsconfig.app.json"
+      "path": "./projects/command-host/tsconfig.app.json"
     },
     {
-      "path": "./projects/host/tsconfig.spec.json"
+      "path": "./projects/command-host/tsconfig.spec.json"
     },
     {
       "path": "./projects/f35mfe/tsconfig.app.json"
