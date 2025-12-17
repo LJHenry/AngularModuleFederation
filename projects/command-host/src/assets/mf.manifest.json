@@ -1,0 +1,5 @@
+{
+    "sim-functions": "http://localhost:4201/remoteEntry.js",
+    "typhoon":       "http://localhost:4202/remoteEntry.js",
+    "datalink":      "http://localhost:4204/remoteEntry.js"
+}

@@ -1,0 +1,51 @@
+<h2>Typhoon - ID: 938453987</h2>
+<p><button matButton="outlined">Publish</button></p>
+
+<mat-divider></mat-divider>
+
+<!-- Entity Options -->
+<h4>Properties</h4>
+<p><mat-slide-toggle>Destroyed</mat-slide-toggle></p>
+<p><mat-slide-toggle>Weight on Wheels</mat-slide-toggle></p>
+<p><mat-slide-toggle checked="true">Is Friend?</mat-slide-toggle></p>
+
+<mat-divider></mat-divider>
+
+<!-- Fuel -->
+<h4>Fuel</h4>
+<mat-slider min="0" max="100" step="1" showTickMarks discrete [displayWith]="formatLabel">
+  <input matSliderThumb>
+</mat-slider>
+
+<mat-divider></mat-divider>
+
+<!-- Stores -->
+<h4>Stores Configuration</h4>
+<p><mat-slide-toggle>Gun</mat-slide-toggle></p>
+
+<form>
+  <p>Chaff</p>
+  <mat-form-field>
+    <input matInput placeholder="0">
+  </mat-form-field>
+  <p>Flares</p>
+  <mat-form-field>
+    <input matInput placeholder="0">
+  </mat-form-field>
+</form>
+
+<p>Fit List</p>
+<form>
+  <mat-form-field>
+    <mat-select>
+      <mat-option value="option1">S2 P6 LDP</mat-option>
+      <mat-option value="option2">S2 P4 SFT2 LDP</mat-option>
+      <mat-option value="option3">S2 SOM2 SFT2 LDP</mat-option>
+      <mat-option value="option4">Clean</mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+
+<div class="emptySpace">
+  
+</div>

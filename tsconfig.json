@@ -22,22 +22,16 @@
   "files": [],
   "references": [
     {
-      "path": "./projects/typhoon-mfe/tsconfig.app.json"
+      "path": "./projects/typhoon/tsconfig.app.json"
     },
     {
-      "path": "./projects/typhoon-mfe/tsconfig.spec.json"
+      "path": "./projects/typhoon/tsconfig.spec.json"
     },
     {
       "path": "./projects/command-host/tsconfig.app.json"
     },
     {
       "path": "./projects/command-host/tsconfig.spec.json"
-    },
-    {
-      "path": "./projects/f35mfe/tsconfig.app.json"
-    },
-    {
-      "path": "./projects/f35mfe/tsconfig.spec.json"
     },
     {
       "path": "./projects/datalink/tsconfig.app.json"

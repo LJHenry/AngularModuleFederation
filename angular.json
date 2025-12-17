@@ -15,20 +15,24 @@
 			"prefix": "app",
 			"architect": {
 				"build": {
-					"builder": "@angular/build:application",
+					"builder": "ngx-build-plus:browser",
 					"options": {
 						"outputPath": "dist/typhoon",
-						"browser": "projects/typhoon/src/main.ts",
 						"tsConfig": "projects/typhoon/tsconfig.app.json",
 						"assets": [
 							{
 								"glob": "**/*",
-								"input": "projects/typhoon/public"
+								"input": "projects/typhoon/public",
+								"output": "."
 							}
 						],
 						"styles": [
 							"projects/typhoon/src/styles.css"
-						]
+						],
+						"main": "projects/typhoon/src/main.ts",
+						"index": "projects\\typhoon\\src\\index.html",
+						"extraWebpackConfig": "projects/typhoon/webpack.config.js",
+						"commonChunk": false
 					},
 					"configurations": {
 						"production": {
@@ -44,7 +48,8 @@
 									"maximumError": "8kB"
 								}
 							],
-							"outputHashing": "all"
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/typhoon/webpack.prod.config.js"
 						},
 						"development": {
 							"optimization": false,
@@ -55,16 +60,22 @@
 					"defaultConfiguration": "production"
 				},
 				"serve": {
-					"builder": "@angular/build:dev-server",
+					"builder": "ngx-build-plus:dev-server",
 					"configurations": {
 						"production": {
-							"buildTarget": "typhoon:build:production"
+							"buildTarget": "typhoon:build:production",
+							"extraWebpackConfig": "projects/typhoon/webpack.prod.config.js"
 						},
 						"development": {
 							"buildTarget": "typhoon:build:development"
 						}
 					},
-					"defaultConfiguration": "development"
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4202,
+						"publicHost": "http://localhost:4202",
+						"extraWebpackConfig": "projects/typhoon/webpack.config.js"
+					}
 				},
 				"test": {
 					"builder": "@angular/build:unit-test"
@@ -84,6 +95,7 @@
 						"outputPath": "dist/command-host",
 						"tsConfig": "projects/command-host/tsconfig.app.json",
 						"assets": [
+							"projects/command-host/src/assets",
 							{
 								"glob": "**/*",
 								"input": "projects/command-host/public",
@@ -146,70 +158,6 @@
 				}
 			}
 		},
-		"f35": {
-			"projectType": "application",
-			"schematics": {},
-			"root": "projects/f35",
-			"sourceRoot": "projects/f35/src",
-			"prefix": "app",
-			"architect": {
-				"build": {
-					"builder": "@angular/build:application",
-					"options": {
-						"outputPath": "dist/f35",
-						"browser": "projects/f35/src/main.ts",
-						"tsConfig": "projects/f35/tsconfig.app.json",
-						"assets": [
-							{
-								"glob": "**/*",
-								"input": "projects/f35/public"
-							}
-						],
-						"styles": [
-							"projects/f35/src/styles.css"
-						]
-					},
-					"configurations": {
-						"production": {
-							"budgets": [
-								{
-									"type": "initial",
-									"maximumWarning": "500kB",
-									"maximumError": "1MB"
-								},
-								{
-									"type": "anyComponentStyle",
-									"maximumWarning": "4kB",
-									"maximumError": "8kB"
-								}
-							],
-							"outputHashing": "all"
-						},
-						"development": {
-							"optimization": false,
-							"extractLicenses": false,
-							"sourceMap": true
-						}
-					},
-					"defaultConfiguration": "production"
-				},
-				"serve": {
-					"builder": "@angular/build:dev-server",
-					"configurations": {
-						"production": {
-							"buildTarget": "f35:build:production"
-						},
-						"development": {
-							"buildTarget": "f35:build:development"
-						}
-					},
-					"defaultConfiguration": "development"
-				},
-				"test": {
-					"builder": "@angular/build:unit-test"
-				}
-			}
-		},
 		"datalink": {
 			"projectType": "application",
 			"schematics": {},
@@ -218,20 +166,24 @@
 			"prefix": "app",
 			"architect": {
 				"build": {
-					"builder": "@angular/build:application",
+					"builder": "ngx-build-plus:browser",
 					"options": {
 						"outputPath": "dist/datalink",
-						"browser": "projects/datalink/src/main.ts",
 						"tsConfig": "projects/datalink/tsconfig.app.json",
 						"assets": [
 							{
 								"glob": "**/*",
-								"input": "projects/datalink/public"
+								"input": "projects/datalink/public",
+								"output": "."
 							}
 						],
 						"styles": [
-							"projects/datalink/src/styles.css"
-						]
+							"projects/datalink/src/styles.css",
+						],
+						"main": "projects/datalink/src/main.ts",
+						"index": "projects\\datalink\\src\\index.html",
+						"extraWebpackConfig": "projects/datalink/webpack.config.js",
+						"commonChunk": false
 					},
 					"configurations": {
 						"production": {
@@ -247,7 +199,8 @@
 									"maximumError": "8kB"
 								}
 							],
-							"outputHashing": "all"
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/datalink/webpack.prod.config.js"
 						},
 						"development": {
 							"optimization": false,
@@ -258,16 +211,22 @@
 					"defaultConfiguration": "production"
 				},
 				"serve": {
-					"builder": "@angular/build:dev-server",
+					"builder": "ngx-build-plus:dev-server",
 					"configurations": {
 						"production": {
-							"buildTarget": "datalink:build:production"
+							"buildTarget": "datalink:build:production",
+							"extraWebpackConfig": "projects/datalink/webpack.prod.config.js"
 						},
 						"development": {
 							"buildTarget": "datalink:build:development"
 						}
 					},
-					"defaultConfiguration": "development"
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4204,
+						"publicHost": "http://localhost:4204",
+						"extraWebpackConfig": "projects/datalink/webpack.config.js"
+					}
 				},
 				"test": {
 					"builder": "@angular/build:unit-test"
@@ -282,20 +241,24 @@
 			"prefix": "app",
 			"architect": {
 				"build": {
-					"builder": "@angular/build:application",
+					"builder": "ngx-build-plus:browser",
 					"options": {
-						"outputPath": "dist/sim-functions",
-						"browser": "projects/sim-functions/src/main.ts",
 						"tsConfig": "projects/sim-functions/tsconfig.app.json",
 						"assets": [
 							{
 								"glob": "**/*",
-								"input": "projects/sim-functions/public"
+								"input": "projects/sim-functions/public",
+								"output": "."
 							}
 						],
 						"styles": [
 							"projects/sim-functions/src/styles.css"
-						]
+						],
+						"main": "projects/sim-functions/src/main.ts",
+						"outputPath": "dist/sim-functions",
+						"index": "projects\\sim-functions\\src\\index.html",
+						"extraWebpackConfig": "projects/sim-functions/webpack.config.js",
+						"commonChunk": false
 					},
 					"configurations": {
 						"production": {
@@ -311,7 +274,8 @@
 									"maximumError": "8kB"
 								}
 							],
-							"outputHashing": "all"
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/sim-functions/webpack.prod.config.js"
 						},
 						"development": {
 							"optimization": false,
@@ -322,16 +286,22 @@
 					"defaultConfiguration": "production"
 				},
 				"serve": {
-					"builder": "@angular/build:dev-server",
+					"builder": "ngx-build-plus:dev-server",
 					"configurations": {
 						"production": {
-							"buildTarget": "sim-functions:build:production"
+							"buildTarget": "sim-functions:build:production",
+							"extraWebpackConfig": "projects/sim-functions/webpack.prod.config.js"
 						},
 						"development": {
 							"buildTarget": "sim-functions:build:development"
 						}
 					},
-					"defaultConfiguration": "development"
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4201,
+						"publicHost": "http://localhost:4201",
+						"extraWebpackConfig": "projects/sim-functions/webpack.config.js"
+					}
 				},
 				"test": {
 					"builder": "@angular/build:unit-test"

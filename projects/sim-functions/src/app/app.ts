@@ -1,39 +1,15 @@
 import { Component, ElementRef, signal, viewChild, ViewChild } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { MatDividerModule } from '@angular/material/divider';
-import { SimState } from '../../sim-state.enum';
+import { RouterModule } from "@angular/router";
+import { RouterLink } from '@angular/router';
+import { SimControlsModule } from './sim-controls/sim-controls.module';
 
 @Component({
-  selector: 'app-root',
-  imports: [
-    RouterOutlet,
-    MatButtonToggleModule,
-    MatDividerModule
-  ],
+  selector: 'app-sim-root',
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
+  imports: [RouterModule,
+    RouterLink,
+    SimControlsModule
+  ],
 })
-export class App {
-  protected readonly title = signal('sim-functions');
-  currentSimState = signal(SimState.Stopped)
-
-  freezeToggle = viewChild<ElementRef>("freezeToggle");
-
-  frozenDisabled = true;
-
-  onStopClick() : void{
-    this.currentSimState.set(SimState.Stopped);
-    this.frozenDisabled = true;
-  }
-
-  onPlayClick() : void{
-    this.currentSimState.set(SimState.Running);
-    this.frozenDisabled = false;
-  }
-
-    onFreezeClick() : void{
-    this.currentSimState.set(SimState.Frozen);
-  }
-
-}
+export class AppComponent { }

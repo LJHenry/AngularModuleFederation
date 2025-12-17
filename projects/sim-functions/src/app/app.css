@@ -68,16 +68,3 @@
           width: max-content;
       }
   }
-
-  mat-button-toggle-group {
-      margin-left: 12px;
-  }
-
-  .mat-button-toggle-checked {
-      background-color: #1976d2 !important;
-      color: white !important;
-  }
-
-    .mat-button-toggle-disabled {
-      background-color:  oklch(70.9% 0.015 304.04) !important;
-  }

@@ -1,13 +1,7 @@
-<main class="main">
-  <div class="content">
-    <p>
-      <mat-button-toggle-group [hideSingleSelectionIndicator]="true">
-        <mat-button-toggle checked="true" (click)="onStopClick()" #stopToggle>Stop</mat-button-toggle>
-        <mat-button-toggle id="playToggle" (click)="onPlayClick()" #playToggle>Play</mat-button-toggle>
-        <mat-button-toggle id="freezeToggle" [disabled]="frozenDisabled" (click)="onFreezeClick()" #freezeToggle>Freeze</mat-button-toggle>
-      </mat-button-toggle-group>
-      Sim is currently: {{currentSimState()}}
-    </p>
-  </div>
-</main>
+<h1>Sim Functions</h1>
+
+<ul>
+    <li><a routerLink="./sim-controls">Controls</a></li>
+</ul>
+
 <router-outlet />

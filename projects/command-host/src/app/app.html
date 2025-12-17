@@ -1,25 +1,22 @@
 <mat-toolbar-row class="toolbar">
   <span>
-    <h2 class="title">OdySSEy Command</h2>
-    <p class="subtitle">Module Federation Example - Host Application</p>
+    <h2 class="title">OdiTTy Command</h2>
   </span>
-  <mat-tab-group>
-    <mat-tab label="Sim">
-      <div class="content">
-        <div>
-          <!-- Sim Control Panel -->
-        </div>
-      </div>
-    </mat-tab>
-    <mat-tab label="Platform">
-      <!-- Platform Controls -->
-    </mat-tab>
-    <mat-tab label="Comms">
-      <!-- Link 16 Panel -->
-    </mat-tab>
-  </mat-tab-group>
 </mat-toolbar-row>
-<main class="main">
 
-</main>
-<router-outlet />
+<div class="tabsDivider">
+  <mat-divider></mat-divider>
+</div>
+
+<!-- Borrowed geeksforgeeks code to create navigation tabs -->
+<nav mat-tab-nav-bar mat-stretch-tabs="false" mat-align-tabs="start" [tabPanel]="tabPanel">
+  @for (link of links; track link) {
+  <a mat-tab-link (click)="activePath = link.path" [active]="link.path == activePath" [routerLink]="link.path">
+    {{ link.label }}
+  </a>
+  }
+</nav>
+
+<mat-tab-nav-panel #tabPanel>
+  <router-outlet (activate)="onActivate($event.path)"></router-outlet>
+</mat-tab-nav-panel>

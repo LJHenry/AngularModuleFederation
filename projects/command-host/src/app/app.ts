@@ -1,20 +1,32 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatDividerModule } from '@angular/material/divider';
+
+// Borrowed geeksforgeeks code to create navigation tabs with Mat
+interface ILink {
+    path: string;
+    label: string;
+}
 
 @Component({
-  selector: 'app-root',
-  imports: [
-    RouterOutlet,
-    MatToolbarModule,
-    MatTabsModule, 
-    MatDividerModule
-  ],
+  selector: 'app-cmd-root',
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
+  standalone: false
 })
-export class App {
+export class AppComponent {
   protected readonly title = signal('host');
+
+  constructor() {}
+
+    links: ILink[] = [
+        { path: '', label: 'Home'},
+        { path: 'sim-controls/sim-controls', label: 'Sim Controls' },
+        { path: 'typhoon-control/typhoon-control', label: 'Platform Controls' },
+        { path: 'link-16/link-16', label: 'Communication' },
+    ];
+
+    activePath = this.links[0].path;
+
+    onActivate(path: string) {
+        this.activePath = path;
+    }
 }
